@@ -1,0 +1,17 @@
+{
+  "presets": ["react-native"],
+  "plugins": [
+    [
+        "import",
+        {
+            "libraryName": "antd-mobile-rn" //ui组件，移动端不需要设置style
+        }
+    ]
+  ],
+  "env": {
+    "production": {
+        "plugins": ["transform-remove-console"] //生产打包时过滤所有console.*,
+                                                //提高性能,调试时仍然被正常调用
+    }
+}
+}

@@ -1,0 +1,29 @@
+{
+  "name": "rn_resource_icolor",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-router-native": "^4.3.0"
+  },
+  "devDependencies": {
+    "antd-mobile-rn": "^2.3.0",
+    "babel-jest": "23.6.0",
+    "babel-plugin-import": "^1.10.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-preset-react-native": "4.0.1",
+    "jest": "23.6.0",
+    "react-redux": "^5.1.0",
+    "react-test-renderer": "16.3.1",
+    "redux": "^4.0.1",
+    "redux-devtools": "^3.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
