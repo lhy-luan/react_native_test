@@ -5,18 +5,26 @@
  */
 
 import React, { Component } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 import {
     Platform,
     StyleSheet,
     Text,
-    View
+    View,
+    Image,
+    // BVLinearGradient
 } from 'react-native';
-// import Store from './src/store/index';
+import './src/store/index';
 import { Toast } from 'antd-mobile-rn';
 import { NativeRouter, Route, Link } from 'react-router-native';
 import './src/lib/fetchData';
 import Home from './src/pages/Home';
-import fetchData from './src/lib/fetchData';
+import {
+    addTodo,
+    toggleTodo,
+    setVisibilityFilter,
+    VisibilityFilters
+  } from './src/store/actions';
 
 
 type Props = {};
@@ -28,8 +36,12 @@ export default class App extends Component < Props > {
         }
     }
     componentDidMount() {
-        Toast.info('hello');
-        fetchData();
+        Toast.info('hello hi11');
+        // fetchData();
+        Store.dispatch(addTodo('ceshis'));
+        Store.dispatch(toggleTodo(1));
+        Store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
+        // alert(JSON.stringify(Store.getState()));
     }
 
     componentWillUnmount() {
@@ -39,19 +51,13 @@ export default class App extends Component < Props > {
     }
 
     render() {
-        return ( 
+        return (
             <NativeRouter>
-                <View style = { styles.container }>
-                    <View style = { styles.nav }>
-                        <Link to = "/"
-                            underlayColor = '#f0f4f7'
-                            style = { styles.navItem }>
-                            <Text > Home </Text>  
-                        </Link> 
+                {/* <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']}> */}
+                    <View style={ styles.container }>
+                        <Route exact path="/" component={ Home }/> 
                     </View>
-
-                    <Route exact path = "/" component = { Home }/> 
-                </View>
+                {/* </LinearGradient> */}
             </NativeRouter>
         );
     }
@@ -59,8 +65,9 @@ export default class App extends Component < Props > {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 25,
-        padding: 10,
+        paddingTop: 20,
+        backgroundColor: '#915CFA',
+        flex: 1,
     },
     header: {
         fontSize: 20,
